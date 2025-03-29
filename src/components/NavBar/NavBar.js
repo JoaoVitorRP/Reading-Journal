@@ -14,8 +14,9 @@ export default function NavBar(props) {
             <div className="position-absolute left">
               <Navbar.Brand as={Link} to="/">
                 <Button
-                  className={`btn btn-primary btn-lg ${currentPath === "/" ? "btn-active" : ""}`}
+                  className={`btn-lg ${currentPath === "/" ? "btn-active" : ""}`}
                   disabled={currentPath === "/"}
+                  data-cy="home-button"
                 >
                   <i className="bi bi-house-door-fill"></i>
                 </Button>
@@ -27,24 +28,27 @@ export default function NavBar(props) {
               <Nav className="mx-auto">
                 <Nav.Link as={Link} to="/about">
                   <Button
-                    className={`btn btn-primary btn-lg ${currentPath === "/about" ? "btn-active" : ""}`}
+                    className={`btn-lg ${currentPath === "/about" ? "btn-active" : ""}`}
                     disabled={currentPath === "/about"}
+                    data-cy="about-button"
                   >
                     Sobre
                   </Button>
                 </Nav.Link>
                 <Nav.Link as={Link} to="/register">
                   <Button
-                    className={`btn btn-primary btn-lg ${currentPath === "/register" ? "btn-active" : ""}`}
+                    className={`btn-lg ${currentPath === "/register" ? "btn-active" : ""}`}
                     disabled={currentPath === "/register"}
+                    data-cy="register-button"
                   >
                     Cadastrar Livro
                   </Button>
                 </Nav.Link>
                 <Nav.Link as={Link} to="/booklist">
                   <Button
-                    className={`btn btn-primary btn-lg ${currentPath === "/booklist" ? "btn-active" : ""}`}
+                    className={`btn-lg ${currentPath === "/booklist" ? "btn-active" : ""}`}
                     disabled={currentPath === "/booklist"}
+                    data-cy="booklist-button"
                   >
                     Ver Leituras
                   </Button>

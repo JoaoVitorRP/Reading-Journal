@@ -58,29 +58,34 @@ export default function BookList({ bookList, setUpdateHappened }) {
   }
 
   return (
-    <ul className="w-100 d-flex flex-column align-items-center">
+    <div className="w-100 d-flex flex-column align-items-center" data-cy="booklist">
       {bookList.map((book, index) => {
         return (
-          <div className="bg-white rounded p-4 m-4 w-50 d-flex flex-column" key={book.id}>
+          <div
+            id={book.id}
+            className="bg-white rounded p-4 m-4 w-50 d-flex flex-column"
+            key={book.id}
+            data-cy={`book-${index}`}
+          >
             <div className="fit-content rounded-circle border border-dark fs-4 mb-2">
               <b className="p-2">{index + 1}</b>
             </div>
 
             <div className="w-100 d-flex">
               <div className="w-100">
-                <p className="d-flex justify-content-between fs-4">
+                <p className="d-flex justify-content-between fs-4" data-cy="booklist-title">
                   <b className="me-4">Título: </b>
                   <span>{book.title}</span>
                 </p>
-                <p className="d-flex justify-content-between fs-6">
+                <p className="d-flex justify-content-between fs-6" data-cy="booklist-author">
                   <b className="me-4">Autor: </b>
                   <span>{book.author}</span>
                 </p>
-                <p className="d-flex justify-content-between fs-6">
+                <p className="d-flex justify-content-between fs-6" data-cy="booklist-genre">
                   <b className="me-4">Gênero: </b>
                   <span>{book.genre}</span>
                 </p>
-                <p className="d-flex justify-content-between fs-6">
+                <p className="d-flex justify-content-between fs-6" data-cy="booklist-readat">
                   <b className="me-4">Data de Leitura: </b>
                   <span>{dayjs(book.readAt).format("DD/MM/YYYY")}</span>
                 </p>
@@ -91,6 +96,7 @@ export default function BookList({ bookList, setUpdateHappened }) {
                   variant="warning"
                   className="w-100 mb-3 d-flex justify-content-between"
                   onClick={() => openEditForm(book)}
+                  data-cy="edit"
                 >
                   Editar <i className="bi bi-pencil-fill ms-2"></i>
                 </Button>
@@ -99,6 +105,7 @@ export default function BookList({ bookList, setUpdateHappened }) {
                   variant="danger"
                   className="w-100 mb-3 d-flex justify-content-between"
                   onClick={() => deleteBookFromList(book)}
+                  data-cy="delete"
                 >
                   Excluir <i className="bi bi-trash-fill ms-2"></i>
                 </Button>
@@ -114,6 +121,6 @@ export default function BookList({ bookList, setUpdateHappened }) {
           </div>
         );
       })}
-    </ul>
+    </div>
   );
 }

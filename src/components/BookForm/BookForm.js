@@ -141,11 +141,11 @@ export default function BookForm({ bookToEdit, setBookToEdit, setUpdateHappened 
       />
 
       <div className="d-flex justify-content-center mt-5">
-        <Button variant="danger" className="me-5 px-5" onClick={() => cancelForm()}>
+        <Button variant="danger" className="me-5 px-5" onClick={() => cancelForm()} data-cy="cancel">
           Cancelar
         </Button>
 
-        <Button variant="success" className="px-5" type="submit">
+        <Button variant="success" className="px-5" type="submit" data-cy="confirm">
           {bookToEdit ? "Atualizar" : "Adicionar"}
         </Button>
       </div>
